@@ -18,12 +18,30 @@ class AlunoSerializer(serializers.ModelSerializer):
             'data_nascimento'
         ] # Campos que será utilizados na serialização
 
+    # def validate_cpfdigit(self, cpf):
+    #     if not cpf.isdigit:
+    #         raise serializers.ValidationError("Você deve digitar apenas numeros") 
+    #     return cpf
+
+        
     def validate_cpf(self, cpf): 
+        """
+        Função para validar o tamanho do CPF
+        """
+        if not cpf.isdigit():
+            raise serializers.ValidationError("Você deve digitar apenas numeros")
+        
         if len(cpf) != 11: 
             raise serializers.ValidationError("O cpf deve conter 11 dígitos") 
         return cpf
     
     def validate_rg(self, rg): 
+        """
+        Função para validar o tamanho do RG
+        """
+        if not rg.isdigit():
+            raise serializers.ValidationError("Você deve digitar apenas numeros")
+
         if len(rg) != 9: 
             raise serializers.ValidationError("O rg deve conter 9 dígitos") 
         return rg
@@ -37,6 +55,10 @@ class TreinamentoSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
     def validate_codigo_curso(self, codigo_curso):
+        """
+        Função para validar o codigo do curso, dessa forma, 
+        o sistema anula a duplicação do mesmo codigo do curso.
+        """
         if len(codigo_curso) != 5:
             raise serializers.ValidationError("O código do curso deve conter 5 dígitos") 
         return codigo_curso
