@@ -3,8 +3,8 @@ from django.db import models
 # Create your models here.
 class Aluno(models.Model):
     nome = models.CharField(max_length=30)
-    rg = models.CharField(max_length=9)
-    cpf = models.CharField(max_length=11)
+    rg = models.CharField(max_length=9, unique=True)
+    cpf = models.CharField(max_length=11, unique=True)
     data_nascimento = models.DateField()
 
     def __str__(self):
@@ -18,7 +18,7 @@ class Treinamento(models.Model):
         ('A', 'Avançado')
     )
 
-    codigo_curso = models.CharField(max_length=10)
+    codigo_curso = models.CharField(max_length=5, unique=True)
     nome_treinamento = models.CharField(max_length=30, default=False)
     descricao = models.CharField(max_length=500)
     categoria = models.CharField(
@@ -44,3 +44,6 @@ class Matricula(models.Model):
         Treinamento, 
         on_delete=models.CASCADE
         ) 
+    
+    class Meta:
+        unique_together = ['aluno', 'treinamento']
