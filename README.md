@@ -26,9 +26,9 @@ Além disto é bom ter um editor para trabalhar com o código como VSCode.
 
 ## 🚀 Instalando o Matricula API Escola de Treinamento
 
-Para instalar o <nome_do_projeto>, siga estas etapas:
+Para instalar o da API, siga estas etapas:
 
-Linux e macOS:
+Linux:
 ```
 # Clone este repositório
 $ git clone git@github.com:brenodocarmo/Api-Treinamento.git
