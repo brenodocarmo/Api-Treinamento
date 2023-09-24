@@ -1,5 +1,9 @@
 from rest_framework import serializers
 
+from validate_docbr import CPF
+
+
+
 from app.models import Aluno, Treinamento, Matricula
 
 
@@ -17,24 +21,20 @@ class AlunoSerializer(serializers.ModelSerializer):
             'cpf',
             'data_nascimento'
         ] # Campos que será utilizados na serialização
-
-    # def validate_cpfdigit(self, cpf):
-    #     if not cpf.isdigit:
-    #         raise serializers.ValidationError("Você deve digitar apenas numeros") 
-    #     return cpf
-
         
     def validate_cpf(self, cpf): 
         """
         Função para validar o tamanho do CPF
         """
-        if not cpf.isdigit():
-            raise serializers.ValidationError("Você deve digitar apenas numeros")
-        
-        if len(cpf) != 11: 
-            raise serializers.ValidationError("O cpf deve conter 11 dígitos") 
-        return cpf
-    
+
+        v_cpf = CPF()
+
+        if not v_cpf.validate(cpf):
+                raise serializers.ValidationError("Você deve digitar um CPF válido")
+        return v_cpf
+
+
+
     def validate_rg(self, rg): 
         """
         Função para validar o tamanho do RG
@@ -46,6 +46,7 @@ class AlunoSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("O rg deve conter 9 dígitos") 
         return rg
         
+
 
 
 class TreinamentoSerializer(serializers.ModelSerializer):
