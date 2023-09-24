@@ -5,7 +5,7 @@
 
 <!-- <img src="imagem.png" alt="Exemplo imagem"> -->
 
-> Esse projeto foi desenvolvido baseado em um exercio do curso Python Base da LinuxTips, ministrado pelo professor Bruno Rocha. O exercicio em questão do curso, era imprimir uma lista de crianças agrupadas por sala de aula que frequenta cada atividade previamente cadastrada. 
+Esse projeto foi desenvolvido baseado em um exercio do curso Python Base da LinuxTips, ministrado pelo professor Bruno Rocha. O exercicio em questão do curso, era imprimir uma lista de crianças agrupadas por sala de aula que frequenta cada atividade previamente cadastrada. 
 Entretanto, alterei esse exercicio para elaborar uma API, no qual realizar a matricula de alunos, assim como cadastra cursos, por fim, realiza a matricula do aluno no curso cadastrado; 
 
 <!-- ### Ajustes e melhorias
