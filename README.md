@@ -51,6 +51,15 @@ $ python manage.py runserver
 # O servidor inciará na porta:8000 - acesse http://127.0.0.1:8000/
 ```
 
+### 🛠 Rota da API
+
+<img src="img/alunos.png" alt="Aluno">
+
+<img src="img/treinamentos.png" alt="Treinamento">
+
+<img src="img/matriculas.png" alt="Matricula">
+
+
 <!-- Windows:
 ```
 <comando_de_instalação>
